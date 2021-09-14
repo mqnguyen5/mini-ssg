@@ -1,0 +1,32 @@
+const yargs = require("yargs");
+const { hideBin } = require("yargs/helpers");
+
+const processInput = require("./utils/processInput");
+
+/**
+ * Creates CLI with the following options:
+ * -i or --input: specifies a path to a file/directory
+ * -h or --help: displays the tool's instructions, cmd line flags and arguments
+ * -v or --version: displays the tool's current version
+ * -s or --stylesheet: specfies a URL to a CSS stylesheet
+ */
+const argv = yargs(hideBin(process.argv))
+    .help("h")
+    .alias("h", "help")
+    .version()
+    .alias("v", "version")
+    .options({
+        i: {
+            alias: "input",
+            demandOption: true,
+            desc: "Path to file/folder",
+            type: "string",
+        },
+        s: {
+            alias: "stylesheet",
+            desc: "Stylesheet URL",
+            type: "string",
+        },
+    }).argv;
+
+processInput(argv.input, argv.stylesheet);

@@ -51,7 +51,7 @@ sat down together to our breakfast one morning.
 
 will be converted to
 
-##### file.html
+#### file.html
 
 ```html
 <!DOCTYPE html>

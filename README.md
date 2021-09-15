@@ -12,7 +12,7 @@ MINI is a simple CLI for generating HTML page(s) from text file(s).
 ## Installation:
 
 1. Clone this project from GitHub.
-2. Install [NodeJS](https://nodejs.org/en/) on your machine.
+2. Install [Nodejs](https://nodejs.org/en/) on your machine.
 3. Redirect to the project folder.
 4. Install MINI using `npm install`.
 

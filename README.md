@@ -30,7 +30,7 @@ node mini-ssg.js -i ./file.txt -s ./stylesheetURL
 | ------------------ | ----------------------------------------- |
 | -v or --version    | Prints the current version                |
 | -h or --help       | Prints a list of options to the screen    |
-| -i or --input      | Accepts a path to either a file or folder |
+| -i or --input [required]      | Accepts a path to either a file or folder |
 | -s or --stylesheet | Accepts a URL to a CSS stylesheet         |
 
 ## Example:

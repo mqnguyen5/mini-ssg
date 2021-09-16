@@ -12,7 +12,7 @@ MINI is a simple CLI for generating HTML page(s) from text file(s).
 ## Installation:
 
 1. Clone this project from GitHub.
-2. Install [NodeJS](https://nodejs.org/en/) on your machine.
+2. Install [Nodejs](https://nodejs.org/en/) on your machine.
 3. Redirect to the project folder.
 4. Install MINI using `npm install`.
 
@@ -30,7 +30,7 @@ node mini-ssg.js -i ./file.txt -s ./stylesheetURL
 | ------------------ | ----------------------------------------- |
 | -v or --version    | Prints the current version                |
 | -h or --help       | Prints a list of options to the screen    |
-| -i or --input      | Accepts a path to either a file or folder |
+| -i or --input [required]      | Accepts a path to either a file or folder |
 | -s or --stylesheet | Accepts a URL to a CSS stylesheet         |
 
 ## Example:
@@ -51,7 +51,7 @@ sat down together to our breakfast one morning.
 
 will be converted to
 
-##### file.html
+#### file.html
 
 ```html
 <!DOCTYPE html>

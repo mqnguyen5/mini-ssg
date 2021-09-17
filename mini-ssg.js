@@ -1,6 +1,7 @@
 const yargs = require("yargs");
 const { hideBin } = require("yargs/helpers");
 
+const tool = require("./package.json");
 const processInput = require("./utils/processInput");
 
 /**
@@ -13,7 +14,7 @@ const processInput = require("./utils/processInput");
 const argv = yargs(hideBin(process.argv))
     .help("h")
     .alias("h", "help")
-    .version()
+    .version(`${tool.name} v${tool.version}`)
     .alias("v", "version")
     .options({
         i: {

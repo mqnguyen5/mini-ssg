@@ -24,6 +24,8 @@ node mini-ssg.js -i ./someFolder
 node mini-ssg.js -i ./file.txt -s ./stylesheetURL
 ```
 
+You can give MINI a try and see how it works using the included `Sherlock-Holmes-Selected-Stories` directory.
+
 ## Options:
 
 | Options            | Functions                                 |

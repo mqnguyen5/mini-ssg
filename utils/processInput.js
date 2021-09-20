@@ -13,7 +13,7 @@ const generateHTMLFile = require("./generateHTML");
 async function processInput(inputPath, stylesheetURL) {
     if (!existsSync(inputPath)) {
         console.log("File/folder's path does not exist.");
-        return;
+        return process.exit(1);
     }
 
     await manageDist();
@@ -43,7 +43,8 @@ async function processInput(inputPath, stylesheetURL) {
         return;
     }
 
-    console.log("File extension must be '.txt'");
+    console.log("File extension must be '.txt'.");
+    return process.exit(1);
 }
 
 /**
@@ -51,14 +52,21 @@ async function processInput(inputPath, stylesheetURL) {
  */
 async function manageDist() {
     const distPath = path.join(__dirname, "../", "dist");
+
     try {
         await rm(distPath, {
             recursive: true,
             force: true,
         });
+    } catch (err) {
+        // Error is ignored since we are about to create 'dist' anyway.
+    }
+
+    try {
         await mkdir(distPath);
     } catch (err) {
-        console.log(err);
+        console.log("Error creating 'dist' folder.");
+        return process.exit(1);
     }
 }
 

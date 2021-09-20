@@ -18,9 +18,18 @@ MINI is a simple CLI for generating HTML page(s) from text file(s).
 
 ## Usage:
 
+1. Converting a single text file:
 ```
 node mini-ssg.js -i ./someFolder/file.txt
+```
+
+2. Converting a folder/directory with multiple text files:
+```
 node mini-ssg.js -i ./someFolder
+```
+
+3. Converting a single text file with a specified CSS stylesheet:
+```
 node mini-ssg.js -i ./file.txt -s ./stylesheetURL
 ```
 

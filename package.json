@@ -8,7 +8,6 @@
     "keywords": [
         "ssg"
     ],
-    "preferGlobal": true,
     "author": "Quan Minh Nguyen",
     "license": "MIT",
     "dependencies": {

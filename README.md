@@ -72,8 +72,6 @@ sat down together to our breakfast one morning.
 
 will be converted to
 
-#### file.html
-
 ```html
 <!DOCTYPE html>
 <html lang="en" dir="ltr">

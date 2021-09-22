@@ -1,7 +1,7 @@
 const { readFile, writeFile } = require("fs/promises");
 const path = require("path");
 const createHtml = require("create-html");
-var htmlBody = "";
+let htmlBody = "";
 
 /**
  * Generates a new html file to a 'dist' directory.
@@ -42,9 +42,9 @@ async function generateHTMLFile(inputPath, stylesheetURL) {
         .replace(/(?<!!)\[(.*?)\]\((.*?)\)/gim, "<a href='$2'>$1</a>") // replaces link -> <a href="$2">$1</a>
         .split(/\r?\n\r?\n/)
         .map(function (para) {
-          if (para.match(/(?<!#)#{1}\s/)) {
+          if (para.match(/(?<!#)#{1}\s/) != null) {
             return `<h1>${para.replace(/# /, "")}</h1>\n\n`; // replaces # -> <h1></h1>
-          } else if (para.match(/(?<!#)#{2}\s/)) {
+          } else if (para.match(/(?<!#)#{2}\s/) != null) {
             return `<h2>${para.replace(/## /, "")}</h2>\n\n`; // replace ## -> <h2></h2>
           }
           return `<p>${para.replace(/\r?\n/, " ")}</p>\n\n`;

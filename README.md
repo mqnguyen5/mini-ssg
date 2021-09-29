@@ -8,7 +8,7 @@ MINI is a simple CLI for generating HTML page(s) from text and markdown file(s).
 -   All generated HTML files will be placed into a `./dist` folder.
 -   All generated HTML files comes with [Water.css](https://github.com/kognise/water.css) by default.
 -   Users can specify a URL to a CSS stylesheet.
--   If user's input contains markdown file(s), MINI will convert all `# Heading1`, `## Heading2`, and `[Link](...)` into their corresponding HTML elements.
+-   If user's input contains markdown file(s), MINI will convert all `# Heading1`, `## Heading2`, inline code blocks, and `[Link](...)` into their corresponding HTML elements.
 
 ## Installation:
 
@@ -103,23 +103,27 @@ will be converted to
 ```
 # MINI
 
-MINI is a simple CLI for generating HTML page(s) from text and markdown file(s).
-
 ## Features:
 
 -   Automatically parse title from input. (A title is defined by being the first line followed by 2 blank lines)
--   All generated HTML files will be placed into a `./dist` folder
+
+-   All generated HTML files will be placed into a `./dist` folder.
+
 -   All generated HTML files comes with [Water.css](https://github.com/kognise/water.css) by default.
+
 -   Users can specify a URL to a CSS stylesheet.
+
+-   If user's input contains markdown file(s), MINI will convert all `# Heading1`, `## Heading2`, and `[Link](...)` into their corresponding HTML elements.
+
 ```
 
 will be converted to
 
 ```html
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en-CA" dir="ltr">
     <head>
-        <title>file</title>
+        <title>test</title>
         <meta charset="utf-8" />
 
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -131,22 +135,28 @@ will be converted to
     </head>
     <body>
         <h1>MINI</h1>
-
-        <p>
-            MINI is a simple CLI for generating HTML page(s) from text and
-            markdown file(s).
-        </p>
-
         <h2>Features:</h2>
-
         <p>
             - Automatically parse title from input. (A title is defined by being
-            the first line followed by 2 blank lines) - All generated HTML files
-            will be placed into a `./dist` folder - All generated HTML files
-            comes with
-            <a href="https://github.com/kognise/water.css">Water.css</a> by
-            default. - Users can specify a URL to a CSS stylesheet.
+            the first line followed by 2 blank lines)
         </p>
+        <p>
+            - All generated HTML files will be placed into a
+            <code>./dist</code> folder.
+        </p>
+        <p>
+            - All generated HTML files comes with
+            <a href="https://github.com/kognise/water.css">Water.css</a> by
+            default.
+        </p>
+        <p>- Users can specify a URL to a CSS stylesheet.</p>
+        <p>
+            - If user's input contains markdown file(s), MINI will convert all
+            <code># Heading1</code>, <code>## Heading2</code>, and
+            <code><a href="...">Link</a></code> into their corresponding HTML
+            elements.
+        </p>
+        <p></p>
     </body>
 </html>
 ```

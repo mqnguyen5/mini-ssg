@@ -28,6 +28,11 @@ const argv = yargs(hideBin(process.argv))
             desc: "Stylesheet URL",
             type: "string",
         },
+        l: {
+            alias: "language",
+            desc: "Language used when generating HTML",
+            type: "string",
+        },
     }).argv;
 
-processInput(argv.input.join(" "), argv.stylesheet);
+processInput(argv.input.join(" "), argv.stylesheet, agrv.language);

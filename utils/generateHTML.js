@@ -42,7 +42,8 @@ async function generateHTMLFile(inputPath, stylesheetURL) {
         } else {
             // handles ".md" content
             htmlBody = data
-                .replace(/(?<!!)\[(.*?)\]\((.*?)\)/gim, "<a href='$2'>$1</a>") // replaces link -> <a href="$2">$1</a>
+                .replace(/(?<!!)\[(.*?)\]\((.*?)\)/gim, "<a href='$2'>$1</a>") // replaces link -> <a href="URL">content</a>
+                .replace(/`(.*?)`/gim, "<code>$1</code>") // replaces single backtick-enclosed text -> <code>content</code>
                 .split(/\r?\n\r?\n/)
                 .map(function (para) {
                     if (para.match(/(?<!#)#{1}\s/) != null) {

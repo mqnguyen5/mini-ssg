@@ -9,8 +9,10 @@ const generateHTMLFile = require("./generateHTML");
  * Generates HTML file(s) based on the given result. (See {@link generateHTMLFile})
  *
  * @param {string} inputPath - A path to a file/directory
+ * @param {string} stylesheetURL - URL link to a CSS stylesheet
+ * @param {string} HTMLlanguage - Language used when generating HTML
  */
-async function processInput(inputPath, stylesheetURL) {
+async function processInput(inputPath, stylesheetURL, HTMLlanguage) {
     if (!existsSync(inputPath)) {
         console.log("File/folder's path does not exist.");
         return process.exit(1);
@@ -31,7 +33,11 @@ async function processInput(inputPath, stylesheetURL) {
                 );
             });
             textFiles.forEach((file) => {
-                generateHTMLFile(path.join(inputPath, file), stylesheetURL);
+                generateHTMLFile(
+                    path.join(inputPath, file),
+                    stylesheetURL,
+                    HTMLlanguage
+                );
             });
             return;
         } catch (err) {

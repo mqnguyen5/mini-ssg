@@ -7,8 +7,9 @@ let htmlBody = "";
  * Generates a new html file to a 'dist' directory.
  * @param {string} inputPath - A path to a text file
  * @param {string} stylesheetURL - A URL to a CSS stylesheet
+ * @param {string} HTMLlanguage - Language used when generating HTML
  */
-async function generateHTMLFile(inputPath, stylesheetURL) {
+async function generateHTMLFile(inputPath, stylesheetURL, HTMLlanguage) {
     try {
         const filename = path.parse(inputPath).name;
         const data = await readFile(inputPath, "utf-8");
@@ -56,7 +57,7 @@ async function generateHTMLFile(inputPath, stylesheetURL) {
         }
 
         const html = createHtml({
-            lang: "en",
+            lang: HTMLlanguage ? HTMLlanguage : "en-CA",
             head: `<meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />`,
             title: htmlTitle ? htmlTitle[0].trim() : filename,

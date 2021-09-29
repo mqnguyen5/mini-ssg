@@ -35,4 +35,4 @@ const argv = yargs(hideBin(process.argv))
         },
     }).argv;
 
-processInput(argv.input.join(" "), argv.stylesheet, agrv.language);
+processInput(argv.input.join(" "), argv.stylesheet, argv.language);

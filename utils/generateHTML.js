@@ -57,7 +57,7 @@ async function generateHTMLFile(inputPath, stylesheetURL, HTMLlanguage) {
         }
 
         const html = createHtml({
-            lang: HTMLlanguage ? HTMLlanguage : "en-CA",
+            lang: HTMLlanguage != null ? HTMLlanguage : "en-CA",
             head: `<meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />`,
             title: htmlTitle ? htmlTitle[0].trim() : filename,

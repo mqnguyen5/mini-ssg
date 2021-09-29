@@ -50,7 +50,7 @@ async function processInput(inputPath, stylesheetURL, HTMLlanguage) {
         path.extname(inputPath) === ".txt" ||
         path.extname(inputPath) === ".md"
     ) {
-        generateHTMLFile(inputPath, stylesheetURL);
+        generateHTMLFile(inputPath, stylesheetURL, HTMLlanguage);
         return;
     }
 

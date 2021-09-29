@@ -10,6 +10,7 @@ const processInput = require("./utils/processInput");
  * -h or --help: displays the tool's instructions, cmd line flags and arguments
  * -v or --version: displays the tool's current version
  * -s or --stylesheet: specfies a URL to a CSS stylesheet
+ * -l or --language: specifies the language for the generated HTMLs
  */
 const argv = yargs(hideBin(process.argv))
     .help("h")

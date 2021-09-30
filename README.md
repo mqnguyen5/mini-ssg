@@ -53,6 +53,7 @@ You can give MINI a try and see how it works using the included `Sherlock-Holmes
 | -h or --help             | Prints a list of options to the screen    |
 | -i or --input [required] | Accepts a path to either a file or folder |
 | -s or --stylesheet       | Accepts a URL to a CSS stylesheet         |
+| -l or --language         | Specifies the language used by the generated HTMLs    |
 
 ## Example:
 

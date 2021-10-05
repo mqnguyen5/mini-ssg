@@ -3,10 +3,16 @@ const { existsSync } = require("fs");
 const path = require("path");
 const processInput = require("./processInput");
 /**
- * Generates a new html file to a 'dist' directory.
+ * Processes user's specified config JSON file and determine whether it's a valid JSON file
+ * Process the input provided inside in config file (See {@link processInput})
  * @param {string} inputPath - A path to a text file
  */
 async function processJSON(inputPath) {
+  if (inputPath === "") {
+    console.log("File path cannot be blank.");
+    return process.exit(1);
+  }
+
   if (!existsSync(inputPath)) {
     console.log("File path does not exist.");
     return process.exit(1);

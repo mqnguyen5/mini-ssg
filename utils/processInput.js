@@ -13,72 +13,73 @@ const generateHTMLFile = require("./generateHTML");
  * @param {string} HTMLlanguage - Language used when generating HTML
  */
 async function processInput(inputPath, stylesheetURL, HTMLlanguage) {
-    if (!existsSync(inputPath)) {
-        console.log("File/folder's path does not exist.");
-        return process.exit(1);
-    }
-
-    await manageDist();
-
-    if (statSync(inputPath).isDirectory()) {
-        try {
-            const entries = await readdir(inputPath);
-
-            // Filters out any non-text and non-markdown files
-            const textFiles = entries.filter((entry) => {
-                return (
-                    statSync(path.join(inputPath, entry)).isFile() &&
-                    (path.extname(entry) === ".txt" ||
-                        path.extname(entry) === ".md")
-                );
-            });
-            textFiles.forEach((file) => {
-                generateHTMLFile(
-                    path.join(inputPath, file),
-                    stylesheetURL,
-                    HTMLlanguage
-                );
-            });
-            return;
-        } catch (err) {
-            console.log(err);
-        }
-    }
-
-    // Adds ".md" extension
-    if (
-        path.extname(inputPath) === ".txt" ||
-        path.extname(inputPath) === ".md"
-    ) {
-        generateHTMLFile(inputPath, stylesheetURL, HTMLlanguage);
-        return;
-    }
-
-    console.log("File extension must be '.txt' or '.md'.");
+  if (inputPath === "") {
+    console.log("File/folder's path cannot be blank.");
     return process.exit(1);
+  }
+
+  if (!existsSync(inputPath)) {
+    console.log("File/folder's path does not exist.");
+    return process.exit(1);
+  }
+
+  await manageDist();
+
+  if (statSync(inputPath).isDirectory()) {
+    try {
+      const entries = await readdir(inputPath);
+
+      // Filters out any non-text and non-markdown files
+      const textFiles = entries.filter((entry) => {
+        return (
+          statSync(path.join(inputPath, entry)).isFile() &&
+          (path.extname(entry) === ".txt" || path.extname(entry) === ".md")
+        );
+      });
+      textFiles.forEach((file) => {
+        generateHTMLFile(
+          path.join(inputPath, file),
+          stylesheetURL,
+          HTMLlanguage
+        );
+      });
+      return;
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  // Adds ".md" extension
+  if (path.extname(inputPath) === ".txt" || path.extname(inputPath) === ".md") {
+    generateHTMLFile(inputPath, stylesheetURL, HTMLlanguage);
+    return;
+  }
+
+  console.log("File extension must be '.txt' or '.md'.");
+  return process.exit(1);
 }
 
 /**
  * Recursively deletes the existing 'dist' directory and creates a new one.
  */
 async function manageDist() {
-    const distPath = path.join(__dirname, "../", "dist");
+  const distPath = path.join(__dirname, "../", "dist");
 
-    try {
-        await rm(distPath, {
-            recursive: true,
-            force: true,
-        });
-    } catch (err) {
-        // Error is ignored since we are about to create 'dist' anyway.
-    }
+  try {
+    await rm(distPath, {
+      recursive: true,
+      force: true,
+    });
+  } catch (err) {
+    // Error is ignored since we are about to create 'dist' anyway.
+  }
 
-    try {
-        await mkdir(distPath);
-    } catch (err) {
-        console.log("Error creating 'dist' folder.");
-        return process.exit(1);
-    }
+  try {
+    await mkdir(distPath);
+  } catch (err) {
+    console.log("Error creating 'dist' folder.");
+    return process.exit(1);
+  }
 }
 
 module.exports = processInput;

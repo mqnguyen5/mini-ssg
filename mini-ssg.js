@@ -22,7 +22,6 @@ const argv = yargs(hideBin(process.argv))
   .options({
     i: {
       alias: "input",
-      // demandOption: true,
       desc: "Path to file/folder",
       type: "array",
     },

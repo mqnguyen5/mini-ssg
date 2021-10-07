@@ -13,11 +13,6 @@ const generateHTMLFile = require("./generateHTML");
  * @param {string} HTMLlanguage - Language used when generating HTML
  */
 async function processInput(inputPath, stylesheetURL, HTMLlanguage) {
-  if (inputPath === "") {
-    console.log("File/folder's path cannot be blank.");
-    return process.exit(1);
-  }
-
   if (!existsSync(inputPath)) {
     console.log("File/folder's path does not exist.");
     return process.exit(1);

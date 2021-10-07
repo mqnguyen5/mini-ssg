@@ -8,11 +8,6 @@ const processInput = require("./processInput");
  * @param {string} inputPath - A path to a text file
  */
 async function processJSON(inputPath) {
-  if (inputPath === "") {
-    console.log("File path cannot be blank.");
-    return process.exit(1);
-  }
-
   if (!existsSync(inputPath)) {
     console.log("File path does not exist.");
     return process.exit(1);

@@ -1,9 +1,9 @@
 const yargs = require("yargs");
 const { hideBin } = require("yargs/helpers");
 
-const tool = require("./package.json");
-const processInput = require("./utils/processInput");
-const processJSON = require("./utils/processJSON");
+const tool = require("../package.json");
+const processInput = require("./modules/process-input");
+const processJSON = require("./modules/process-json");
 
 /**
  * Creates CLI with the following options:

@@ -1,17 +1,17 @@
 {
-    "name": "mini",
-    "version": "1.0.0",
-    "description": "A minimalistic SSG",
-    "bin": {
-        "mini": "./mini-ssg.js"
-    },
-    "keywords": [
-        "ssg"
-    ],
-    "author": "Quan Minh Nguyen",
-    "license": "MIT",
-    "dependencies": {
-        "create-html": "^4.1.0",
-        "yargs": "^17.1.1"
-    }
+  "name": "mini",
+  "version": "1.0.0",
+  "description": "A minimalist SSG",
+  "bin": {
+    "mini": ".src/mini-ssg.js"
+  },
+  "keywords": [
+    "ssg"
+  ],
+  "author": "Quan Minh Nguyen",
+  "license": "MIT",
+  "dependencies": {
+    "create-html": "^4.1.0",
+    "yargs": "^17.1.1"
+  }
 }

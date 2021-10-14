@@ -2,7 +2,7 @@ const { existsSync, statSync } = require("fs");
 const { readdir, mkdir, rm } = require("fs/promises");
 const path = require("path");
 
-const generateHTMLFile = require("./generateHTML");
+const generateHTMLFile = require("./generate-html");
 
 /**
  * Processes user's specified input and determine whether it's a directory, text file or non-text file.
@@ -14,7 +14,7 @@ const generateHTMLFile = require("./generateHTML");
  */
 async function processInput(inputPath, stylesheetURL, HTMLlanguage) {
   if (!existsSync(inputPath)) {
-    console.log("File/folder's path does not exist.");
+    console.log("File/folder path does not exist.");
     return process.exit(1);
   }
 
@@ -44,21 +44,20 @@ async function processInput(inputPath, stylesheetURL, HTMLlanguage) {
     }
   }
 
-  // Adds ".md" extension
-  if (path.extname(inputPath) === ".txt" || path.extname(inputPath) === ".md") {
-    generateHTMLFile(inputPath, stylesheetURL, HTMLlanguage);
-    return;
+  if (path.extname(inputPath) !== ".txt" && path.extname(inputPath) !== ".md") {
+    console.log("File extension must be '.txt' or '.md'.");
+    return process.exit(1);
   }
 
-  console.log("File extension must be '.txt' or '.md'.");
-  return process.exit(1);
+  generateHTMLFile(inputPath, stylesheetURL, HTMLlanguage);
+  return;
 }
 
 /**
  * Recursively deletes the existing 'dist' directory and creates a new one.
  */
 async function manageDist() {
-  const distPath = path.join(__dirname, "../", "dist");
+  const distPath = path.join(__dirname, "../../", "dist");
 
   try {
     await rm(distPath, {

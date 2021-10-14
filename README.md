@@ -23,34 +23,34 @@ MINI is a simple CLI for generating HTML page(s) from text and markdown file(s).
 1. Converting a single text file:
 
 ```
-node mini-ssg.js -i ./someFolder/file.txt
+node src/mini-ssg.js -i ./someFolder/file.txt
 ```
 
 2. Converting a single markdown file:
 
 ```
-node mini-ssg.js -i ./someFolder/file.md
+node src/mini-ssg.js -i ./someFolder/file.md
 ```
 
 3. Converting a folder/directory with multiple text/markdown files:
 
 ```
-node mini-ssg.js -i ./someFolder
+node src/mini-ssg.js -i ./someFolder
 ```
 
 4. Converting a single text file with a specified CSS stylesheet:
 
 ```
-node mini-ssg.js -i ./file.txt -s ./stylesheetURL
+node src/mini-ssg.js -i ./file.txt -s ./stylesheetURL
 ```
 
 5. Converting a single text file/a directory with a config JSON file:
 
 ```
-node mini-ssg.js -c ./sample.json
+node src/mini-ssg.js -c ./sample.json
 ```
 
-You can give MINI a try and see how it works using the included `Sherlock-Holmes-Selected-Stories` directory and the `sample.json` file.
+You can give MINI a try and see how it works using the included `Sherlock-Holmes-Selected-Stories` directory and/or the `sample.json` file.
 
 ## Options:
 

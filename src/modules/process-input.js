@@ -58,9 +58,14 @@ async function processInput(inputPath, stylesheetURL, HTMLlanguage) {
  */
 async function manageDist() {
   const distPath = path.join(__dirname, "../../", "dist");
+  const assetsPath = path.join(__dirname, "../../", "assets");
 
   try {
     await rm(distPath, {
+      recursive: true,
+      force: true,
+    });
+    await rm(assetsPath, {
       recursive: true,
       force: true,
     });
@@ -70,6 +75,7 @@ async function manageDist() {
 
   try {
     await mkdir(distPath);
+    await mkdir(assetsPath);
   } catch (err) {
     console.log("Error creating 'dist' folder.");
     return process.exit(1);

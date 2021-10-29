@@ -12,6 +12,7 @@
   "license": "MIT",
   "dependencies": {
     "create-html": "^4.1.0",
+    "markdown-it": "^12.2.0",
     "yargs": "^17.1.1"
   }
 }

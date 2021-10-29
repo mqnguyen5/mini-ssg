@@ -1,6 +1,7 @@
 const { readFile, writeFile } = require("fs/promises");
 const path = require("path");
 const createHtml = require("create-html");
+const md = require("markdown-it")().disable(["link", "image"]);
 
 /**
  * Creates a new HTML file, write the appropriate content, then place it to a 'dist/' directory.
@@ -67,17 +68,10 @@ function generateHTMLBody(data, extName, title) {
   }
 
   // Handles ".md" content
-  return data
+  return md
+    .render(data)
     .replace(/(?<!!)\[(.*?)\]\((.*?)\)/gim, "<a href='$2'>$1</a>") // replaces link -> <a href="URL">content</a>
-    .replace(/`(.*?)`/gim, "<code>$1</code>") // replaces single backtick-enclosed text -> <code>content</code>
-    .split(/\r?\n\r?\n/g)
-    .map(function (para) {
-      return para
-        .replace(/(^[^#](.*)$)/gim, "<p>$1</p>")
-        .replace(/^##\s(.*$)/gim, "<h2>$1</h2>") // replaces ## Heading -> <h2>Heading</h2>
-        .replace(/^#\s(.*$)/gim, "<h1>$1</h1>"); // replaces # Heading -> <h1>Heading</h1>
-    })
-    .join("\n");
+    .replace(/!\[(.*?)\]\((.*?)\)/gim, "<img alt='$1' src='../assets/$2' />");
 }
 
 module.exports = generateHTMLFile;

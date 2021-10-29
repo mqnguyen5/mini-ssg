@@ -10,6 +10,9 @@ MINI is a simple CLI for generating HTML page(s) from text and markdown file(s).
 - Users can specify a URL to a CSS stylesheet.
 - If user's input contains markdown file(s), MINI will convert all `# Heading1`, `## Heading2`, inline code blocks, and `[Link](...)` into their corresponding HTML elements.
 - If user specifies a config JSON file, MINI will extract the `input`, `stylesheet` and `lang` properties and ignore other options from the JSON file to generate HTML files accordingly.
+- Support static assets: All generated HTML files (from markdown files only) will reference static assets (images or favicon) from the `/assets` folder.
+
+**WARNING**: All static assets in the `/assets` folder will be override when converting new `.md` files!
 
 ## Installation:
 

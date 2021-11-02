@@ -1,8 +1,8 @@
-const { existsSync, statSync } = require("fs");
-const { readdir, mkdir, rm } = require("fs/promises");
-const path = require("path");
+const { existsSync, statSync } = require('fs');
+const { readdir, mkdir, rm } = require('fs/promises');
+const path = require('path');
 
-const generateHTMLFile = require("./generate-html");
+const generateHTMLFile = require('./generate-html');
 
 /**
  * Processes user's specified input and determine whether it's a directory, text file or non-text file.
@@ -14,7 +14,7 @@ const generateHTMLFile = require("./generate-html");
  */
 async function processInput(inputPath, stylesheetURL, HTMLlanguage) {
   if (!existsSync(inputPath)) {
-    console.log("File/folder path does not exist.");
+    console.log('File/folder path does not exist.');
     return process.exit(1);
   }
 
@@ -28,15 +28,11 @@ async function processInput(inputPath, stylesheetURL, HTMLlanguage) {
       const textFiles = entries.filter((entry) => {
         return (
           statSync(path.join(inputPath, entry)).isFile() &&
-          (path.extname(entry) === ".txt" || path.extname(entry) === ".md")
+          (path.extname(entry) === '.txt' || path.extname(entry) === '.md')
         );
       });
       textFiles.forEach((file) => {
-        generateHTMLFile(
-          path.join(inputPath, file),
-          stylesheetURL,
-          HTMLlanguage
-        );
+        generateHTMLFile(path.join(inputPath, file), stylesheetURL, HTMLlanguage);
       });
       return;
     } catch (err) {
@@ -44,7 +40,7 @@ async function processInput(inputPath, stylesheetURL, HTMLlanguage) {
     }
   }
 
-  if (path.extname(inputPath) !== ".txt" && path.extname(inputPath) !== ".md") {
+  if (path.extname(inputPath) !== '.txt' && path.extname(inputPath) !== '.md') {
     console.log("File extension must be '.txt' or '.md'.");
     return process.exit(1);
   }
@@ -57,8 +53,8 @@ async function processInput(inputPath, stylesheetURL, HTMLlanguage) {
  * Recursively deletes the existing 'dist' directory and creates a new one.
  */
 async function manageDist() {
-  const distPath = path.join(__dirname, "../../", "dist");
-  const assetsPath = path.join(__dirname, "../../", "assets");
+  const distPath = path.join(__dirname, '../../', 'dist');
+  const assetsPath = path.join(__dirname, '../../', 'assets');
 
   try {
     await rm(distPath, {

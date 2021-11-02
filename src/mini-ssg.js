@@ -1,9 +1,9 @@
-const yargs = require("yargs");
-const { hideBin } = require("yargs/helpers");
+const yargs = require('yargs');
+const { hideBin } = require('yargs/helpers');
 
-const tool = require("../package.json");
-const processInput = require("./modules/process-input");
-const processJSON = require("./modules/process-json");
+const tool = require('../package.json');
+const processInput = require('./modules/process-input');
+const processJSON = require('./modules/process-json');
 
 /**
  * Creates CLI with the following options:
@@ -15,36 +15,36 @@ const processJSON = require("./modules/process-json");
  * -c or --config: specifies a path to a JSON file
  */
 const argv = yargs(hideBin(process.argv))
-  .help("h")
-  .alias("h", "help")
+  .help('h')
+  .alias('h', 'help')
   .version(`${tool.name} v${tool.version}`)
-  .alias("v", "version")
+  .alias('v', 'version')
   .options({
     i: {
-      alias: "input",
-      desc: "Path to file/folder",
-      type: "array",
+      alias: 'input',
+      desc: 'Path to file/folder',
+      type: 'array',
     },
     s: {
-      alias: "stylesheet",
-      desc: "Stylesheet URL",
-      type: "string",
+      alias: 'stylesheet',
+      desc: 'Stylesheet URL',
+      type: 'string',
     },
     l: {
-      alias: "language",
-      desc: "Language used when generating HTML",
-      type: "string",
+      alias: 'language',
+      desc: 'Language used when generating HTML',
+      type: 'string',
     },
     c: {
-      alias: "config",
-      desc: "Path to a JSON file",
-      type: "array",
+      alias: 'config',
+      desc: 'Path to a JSON file',
+      type: 'array',
     },
   }).argv;
 
 if (argv.config) {
-  processJSON(argv.config.join(" "));
+  processJSON(argv.config.join(' '));
   return;
 }
 
-processInput(argv.input.join(" "), argv.stylesheet, argv.language);
+processInput(argv.input.join(' '), argv.stylesheet, argv.language);

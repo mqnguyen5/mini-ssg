@@ -2,7 +2,7 @@
 
 MINI is a simple CLI for generating HTML page(s) from text and markdown file(s).
 
-## Features:
+## Features ✨:
 
 - Automatically parse title from input. (A title is defined by being the first line followed by 2 blank lines)
 - All generated HTML files will be placed into a `./dist` folder.
@@ -14,14 +14,7 @@ MINI is a simple CLI for generating HTML page(s) from text and markdown file(s).
 
 **WARNING**: All static assets in the `/assets` folder will be override when converting new `.md` files!
 
-## Installation:
-
-1. Clone this project from GitHub.
-2. Install [Nodejs](https://nodejs.org/en/) on your machine (minimum v14).
-3. Redirect to the project folder.
-4. Install MINI using `npm install`.
-
-## Usage:
+## Usage 🚗:
 
 1. Converting a single text file:
 
@@ -55,7 +48,7 @@ node src/mini-ssg.js -c ./sample.json
 
 You can give MINI a try and see how it works using the included `Sherlock-Holmes-Selected-Stories` directory and/or the `sample.json` file.
 
-## Options:
+## Options 🔧:
 
 | Options            | Functions                                          |
 | ------------------ | -------------------------------------------------- |
@@ -66,7 +59,7 @@ You can give MINI a try and see how it works using the included `Sherlock-Holmes
 | -l or --language   | Specifies the language used by the generated HTMLs |
 | -c or --config     | Accepts a path to a config JSON file               |
 
-## Example:
+## Example 🔰:
 
 #### file.txt
 
@@ -93,16 +86,13 @@ will be converted to
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css"
-    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css" />
   </head>
   <body>
     <h1>Silver Blaze</h1>
     <p>
-      I am afraid, Watson, that I shall have to go,” said Holmes, as we sat down
-      together to our breakfast one morning.
+      I am afraid, Watson, that I shall have to go,” said Holmes, as we sat down together to our
+      breakfast one morning.
     </p>
     <p>“Go! Where to?”</p>
     <p>“To Dartmoor; to King’s Pyland.”</p>
@@ -140,17 +130,14 @@ will be converted to
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css"
-    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css" />
   </head>
   <body>
     <h1>MINI</h1>
     <h2>Features:</h2>
     <p>
-      - Automatically parse title from input. (A title is defined by being the
-      first line followed by 2 blank lines)
+      - Automatically parse title from input. (A title is defined by being the first line followed
+      by 2 blank lines)
     </p>
     <p>
       - All generated HTML files will be placed into a
@@ -164,14 +151,19 @@ will be converted to
     <p>
       - If user's input contains markdown file(s), MINI will convert all
       <code># Heading1</code>, <code>## Heading2</code>, and
-      <code><a href="...">Link</a></code> into their corresponding HTML
-      elements.
+      <code><a href="...">Link</a></code> into their corresponding HTML elements.
     </p>
     <p></p>
   </body>
 </html>
 ```
 
-## License:
+## Contributing 🚧:
+
+I'm still actively developing and maintaining MINI, and if you'd like to help, please have a look at the [contribution docs](https://github.com/mqnguyen5/mini-ssg/blob/main/CONTRIBUTION.md).
+
+All contributions are very much welcome! 🥳
+
+## License 🚨:
 
 [MIT](https://choosealicense.com/licenses/mit/)

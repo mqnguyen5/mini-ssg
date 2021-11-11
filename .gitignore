@@ -1,0 +1,9 @@
+# Dependencies
+node_modules/
+
+# User's output
+dist/
+
+# Misc.
+assets/
+coverage/

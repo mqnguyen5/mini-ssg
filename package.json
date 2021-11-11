@@ -12,7 +12,10 @@
     "prettier": "prettier --write \"./**/*.{md,jsx,json,html,css,js,yml}\"",
     "prettier-check": "prettier --check \"./**/*.{md,jsx,json,html,css,js,yml}\"",
     "prepare": "husky install",
-    "pre-commit": "pretty-quick --staged"
+    "pre-commit": "pretty-quick --staged",
+    "test": "jest --",
+    "test:watch": "jest --watch --",
+    "coverage": "jest --collectCoverage --"
   },
   "keywords": [
     "ssg"
@@ -28,6 +31,7 @@
     "eslint": "^8.1.0",
     "eslint-config-prettier": "^8.3.0",
     "husky": "^7.0.0",
+    "jest": "^27.3.1",
     "prettier": "^2.4.1",
     "pretty-quick": "^3.1.1"
   }

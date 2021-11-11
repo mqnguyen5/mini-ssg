@@ -2,8 +2,8 @@ const yargs = require('yargs');
 const { hideBin } = require('yargs/helpers');
 
 const tool = require('../package.json');
-const processInput = require('./modules/process-input');
-const processJSON = require('./modules/process-json');
+const processInputs = require('./modules/process-input');
+const processJson = require('./modules/process-json');
 
 /**
  * Creates CLI with the following options:
@@ -42,9 +42,13 @@ const argv = yargs(hideBin(process.argv))
     },
   }).argv;
 
-if (argv.config) {
-  processJSON(argv.config.join(' '));
-  return;
-}
+try {
+  if (argv.config) {
+    processJson(argv.config.join(' '));
+    return;
+  }
 
-processInput(argv.input.join(' '), argv.stylesheet, argv.language);
+  processInputs(argv.input.join(' '), argv.stylesheet, argv.language);
+} catch (err) {
+  console.log(err);
+}

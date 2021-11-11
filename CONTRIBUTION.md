@@ -37,5 +37,10 @@ npm install
 
 ### ESLint:
 
-- `npm run lint` or `npm run eslint` will run all files against the linting style guide found in **.eslintrc**.
-- `npm run eslint-fix` will do the same as above and also "fixes" any errors.
+- `npm run lint [file] | [dir]` or `npm run eslint [file] | [dir]]` will run all files against the linting style guide found in **.eslintrc**.
+- `npm run eslint-fix [file] | [dir]` will do the same as above and also "fixes" any errors.
+
+### Testing ⚗️:
+
+- `npm test [file]` will run the test on the specified file.
+- `npm run test:watch [file]` will also run the test but in **watch** mode, which automatically re-runs when changes are made.

@@ -1,6 +1,5 @@
 {
-  "input": "./Sherlock-Holmes-Selected-Stories",
-  "output": "./build",
+  "input": "./samples/test.md",
   "stylesheet": "https://cdnjs.cloudflare.com/ajax/libs/tufte-css/1.8.0/tufte.min.css",
   "lang": "fr"
 }

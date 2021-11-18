@@ -1,5 +1,5 @@
 const { existsSync } = require('fs');
-const { mkdir, rm } = require('fs').promises;
+const { mkdir, rm } = require('fs/promises');
 const path = require('path');
 
 const { processFile, generateHtmlBody, createHtmlFile } = require('./generate-html');

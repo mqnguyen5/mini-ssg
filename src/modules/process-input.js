@@ -1,5 +1,5 @@
 const { existsSync, statSync } = require('fs');
-const { readdir, mkdir, rm } = require('fs').promises;
+const { readdir, mkdir, rm } = require('fs/promises');
 const path = require('path');
 
 const { processFile } = require('./generate-html');

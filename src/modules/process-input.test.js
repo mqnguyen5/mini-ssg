@@ -27,7 +27,7 @@ describe('processPath tests', () => {
   });
 
   test("should throw appropriate error message when receiving file not ending with '.md' or '.txt'", async () => {
-    const input = path.join(__dirname, '../../samples/test.js');
+    const input = path.join(__dirname, '../../samples/file.js');
 
     try {
       await processPath(input);

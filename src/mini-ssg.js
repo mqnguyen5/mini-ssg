@@ -2,7 +2,7 @@ const yargs = require('yargs');
 const { hideBin } = require('yargs/helpers');
 
 const tool = require('../package.json');
-const processInputs = require('./modules/process-input');
+const { processInputs } = require('./modules/process-input');
 const processJson = require('./modules/process-json');
 
 /**

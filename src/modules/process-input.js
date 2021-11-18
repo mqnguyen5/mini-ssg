@@ -12,37 +12,46 @@ const { processFile } = require('./generate-html');
  * @param {string} language - Language used when generating HTML
  */
 async function processInputs(inputPath, stylesheetUrl, language) {
-  if (!existsSync(inputPath)) {
-    throw new Error('File/directory does not exist.');
-  }
-
   const distPath = path.join(__dirname, '../../', 'dist');
   await manageDir(distPath);
   const assetsPath = path.join(__dirname, '../../', 'assets');
   await manageDir(assetsPath);
 
-  if (statSync(inputPath).isDirectory()) {
-    const entries = await readdir(inputPath);
+  const retrievedFiles = await processPath(inputPath);
 
-    // Filters out any non-text and non-markdown files
-    const textFiles = entries.filter((entry) => {
-      return (
-        statSync(path.join(inputPath, entry)).isFile() &&
-        (path.extname(entry) === '.txt' || path.extname(entry) === '.md')
-      );
-    });
-    textFiles.forEach((file) => {
+  if (Array.isArray(retrievedFiles)) {
+    retrievedFiles.forEach((file) => {
       processFile(path.join(inputPath, file), stylesheetUrl, language);
     });
     return;
   }
 
+  processFile(inputPath, stylesheetUrl, language);
+  return;
+}
+
+async function processPath(inputPath) {
+  if (!existsSync(inputPath)) {
+    throw new Error('File/directory does not exist.');
+  }
+
+  if (statSync(inputPath).isDirectory()) {
+    const entries = await readdir(inputPath);
+
+    // Filters out any non-text and non-markdown files
+    const validFiles = entries.filter((entry) => {
+      return (
+        statSync(path.join(inputPath, entry)).isFile() &&
+        (path.extname(entry) === '.txt' || path.extname(entry) === '.md')
+      );
+    });
+    return validFiles;
+  }
+
   if (path.extname(inputPath) !== '.txt' && path.extname(inputPath) !== '.md') {
     throw new Error("File extension must be '.txt' or '.md'.");
   }
-
-  processFile(inputPath, stylesheetUrl, language);
-  return;
+  return inputPath;
 }
 
 /**
@@ -61,4 +70,4 @@ async function manageDir(dirPath) {
   }
 }
 
-module.exports = processInputs;
+module.exports = { processInputs, processPath };

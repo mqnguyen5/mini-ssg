@@ -44,7 +44,8 @@ const argv = yargs(hideBin(process.argv))
 
 try {
   if (argv.config) {
-    processJson(argv.config.join(' '));
+    const data = processJson(argv.config.join(' '));
+    processInputs(data.input, data.stylesheet, data.lang);
     return;
   }
 

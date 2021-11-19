@@ -43,7 +43,7 @@ node src/mini-ssg.js -i ./file.txt -s ./stylesheetURL
 5. Converting a single text file/a directory with a config JSON file:
 
 ```
-node src/mini-ssg.js -c ./sample.json
+node src/mini-ssg.js -c ./samples/sample.json
 ```
 
 You can give MINI a try and see how it works using the included `Sherlock-Holmes-Selected-Stories` directory and/or the `sample.json` file.

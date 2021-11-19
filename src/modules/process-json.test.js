@@ -2,6 +2,17 @@ const path = require('path');
 const processJson = require('./process-json');
 
 describe('processJson tests', () => {
+  test('valid JSON file path should successfully parse all fields', () => {
+    const jsonFilePath = path.join(__dirname, '../../', 'samples/sample.json');
+    const expectedJsonObject = {
+      input: './samples/test.md',
+      stylesheet: 'https://cdnjs.cloudflare.com/ajax/libs/tufte-css/1.8.0/tufte.min.css',
+      lang: 'fr',
+    };
+
+    expect(processJson(jsonFilePath)).toEqual(expectedJsonObject);
+  });
+
   test('empty file path should throw error with appropriate message', async () => {
     const filePath = '';
     try {

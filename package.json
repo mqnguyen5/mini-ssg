@@ -1,9 +1,10 @@
 {
   "name": "mini",
   "version": "1.0.0",
-  "description": "A minimalist SSG",
+  "description": "A minimalist SSG written in JS.",
+  "main": "src/index.js",
   "bin": {
-    "mini": ".src/mini-ssg.js"
+    "mini_ssg": "src/index.js"
   },
   "scripts": {
     "eslint": "eslint --config .eslintrc.js",
@@ -18,14 +19,23 @@
     "coverage": "jest --collectCoverage --"
   },
   "keywords": [
-    "ssg"
+    "ssg",
+    "cli"
   ],
-  "author": "Quan Minh Nguyen",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mqnguyen5/mini-ssg.git"
+  },
+  "author": "Minh Quan Nguyen",
   "license": "MIT",
   "dependencies": {
     "create-html": "^4.1.0",
     "markdown-it": "^12.2.0",
     "yargs": "^17.1.1"
+  },
+  "homepage": "https://github.com/mqnguyen5/mini-ssg/blob/main/README.md",
+  "bugs": {
+    "url": "https://github.com/mqnguyen5/mini-ssg/issues"
   },
   "devDependencies": {
     "eslint": "^8.1.0",

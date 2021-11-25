@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const yargs = require('yargs');
 const { hideBin } = require('yargs/helpers');
 
@@ -15,6 +16,8 @@ const processJson = require('./modules/process-json');
  * -c or --config: specifies a path to a JSON file
  */
 const argv = yargs(hideBin(process.argv))
+  .scriptName('mini_ssg')
+  .usage('Usage: $0 -i <path> -s <stylesheet-url>')
   .help('h')
   .alias('h', 'help')
   .version(`${tool.name} v${tool.version}`)
@@ -42,7 +45,18 @@ const argv = yargs(hideBin(process.argv))
     },
   }).argv;
 
+function showError(err) {
+  console.log(`${err}\n`);
+  yargs.showHelp();
+
+  return process.exit(1);
+}
+
 try {
+  if (!argv.input && !argv.config) {
+    showError('Error! Please specify either -i or -c option.');
+  }
+
   if (argv.config) {
     const data = processJson(argv.config.join(' '));
     processInputs(data.input, data.stylesheet, data.lang);

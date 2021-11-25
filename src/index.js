@@ -16,7 +16,7 @@ const processJson = require('./modules/process-json');
  * -c or --config: specifies a path to a JSON file
  */
 const argv = yargs(hideBin(process.argv))
-  .scriptName('mini_ssg')
+  .scriptName('mini-cli-ssg')
   .usage('Usage: $0 -i <path> -s <stylesheet-url>')
   .help('h')
   .alias('h', 'help')

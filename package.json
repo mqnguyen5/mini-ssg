@@ -1,10 +1,10 @@
 {
-  "name": "mini",
-  "version": "1.0.0",
+  "name": "mini-cli-ssg",
+  "version": "1.0.2",
   "description": "A minimalist SSG written in JS.",
   "main": "src/index.js",
   "bin": {
-    "mini_ssg": "src/index.js"
+    "mini-cli-ssg": "src/index.js"
   },
   "scripts": {
     "eslint": "eslint --config .eslintrc.js",

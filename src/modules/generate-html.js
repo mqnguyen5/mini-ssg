@@ -3,7 +3,6 @@ const path = require('path');
 
 const createHtml = require('create-html');
 const md = require('markdown-it')().disable(['link', 'image']);
-const prettier = require('prettier');
 
 /**
  * Extracts the file's information and read its data.
@@ -93,10 +92,7 @@ async function createHtmlFile(
       body: html.body,
     });
 
-    await writeFile(
-      path.join('dist', `${filename}.html`),
-      prettier.format(fileContent, { parser: 'html' })
-    );
+    await writeFile(path.join('dist', `${filename}.html`), fileContent);
     console.log(`${filename}.html has been created.`);
     return true;
   } catch (err) {

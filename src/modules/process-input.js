@@ -12,9 +12,10 @@ const { processFile } = require('./generate-html');
  * @param {string} language - Language used when generating HTML
  */
 async function processInputs(inputPath, stylesheetUrl, language) {
-  const distPath = path.resolve(path.join(__dirname, '../../', 'dist'));
+  const distPath = path.resolve('dist');
+  console.log(distPath);
   await manageDir(distPath);
-  const assetsPath = path.resolve(path.join(__dirname, '../../', 'assets'));
+  const assetsPath = path.resolve('assets');
   await manageDir(assetsPath);
 
   const retrievedFiles = await processPath(inputPath);

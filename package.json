@@ -1,6 +1,6 @@
 {
   "name": "mini-cli-ssg",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A minimalist SSG written in JS.",
   "main": "src/index.js",
   "bin": {

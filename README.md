@@ -17,7 +17,7 @@ MINI is a simple CLI for generating HTML page(s) from text and markdown file(s).
 ## Installation 💾:
 
 ```bash
-npm install mini-cli-ssg
+npm install -g mini-cli-ssg
 ```
 
 ## Usage 🚗:

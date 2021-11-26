@@ -25,12 +25,12 @@ const argv = yargs(hideBin(process.argv))
   .options({
     i: {
       alias: 'input',
-      desc: 'Path to file/folder',
+      desc: 'Path to file/folder.',
       type: 'array',
     },
     s: {
       alias: 'stylesheet',
-      desc: 'Stylesheet URL',
+      desc: 'URL to a CSS stylesheet. Uses WaterCSS by default.',
       type: 'string',
     },
     l: {

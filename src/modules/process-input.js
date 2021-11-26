@@ -13,7 +13,6 @@ const { processFile } = require('./generate-html');
  */
 async function processInputs(inputPath, stylesheetUrl, language) {
   const distPath = path.resolve('dist');
-  console.log(distPath);
   await manageDir(distPath);
   const assetsPath = path.resolve('assets');
   await manageDir(assetsPath);

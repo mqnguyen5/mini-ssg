@@ -52,7 +52,7 @@ mini-cli-ssg -i ./file.txt -s ./stylesheetURL
 mini-cli-ssg -c ./samples/sample.json
 ```
 
-You can give MINI a try and see how it works using the included `Sherlock-Holmes-Selected-Stories` directory and/or the `sample.json` file.
+You can give MINI a try and see how it works using the included `Sherlock-Holmes-Selected-Stories/` directory and/or the `sample.json` file.
 
 ## Options 🔧:
 

@@ -37,7 +37,7 @@ npm install
 
 ### ESLint:
 
-- `npm run lint [file] | [dir]` or `npm run eslint [file] | [dir]]` will run all files against the linting style guide found in **.eslintrc**.
+- `npm run lint [file] | [dir]` or `npm run eslint [file] | [dir]` will run all files against the linting style guide found in **.eslintrc**.
 - `npm run eslint-fix [file] | [dir]` will do the same as above and also "fixes" any errors.
 
 ### Testing ⚗️:

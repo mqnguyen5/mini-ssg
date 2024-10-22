@@ -164,12 +164,6 @@ will be converted to
 </html>
 ```
 
-## Contributing 🚧:
-
-I'm still actively developing and maintaining MINI, and if you'd like to help, please have a look at the [contribution docs](https://github.com/mqnguyen5/mini-ssg/blob/main/CONTRIBUTION.md).
-
-All contributions are very much welcome! 🥳
-
 ## License 🚨:
 
 [MIT](https://choosealicense.com/licenses/mit/)
